@@ -1,0 +1,17 @@
+<div align="center">
+    <h1>상품 상세보기</h1>
+
+    <h2>{{store.storeName}}</h2>
+    <p>{{store.p_name}}</p>
+    <img src="{{store.p_image.url}}" width="100px" height="100px" alt="상품 사진">
+    <p>가격: {{store.p_price}}원</p>
+
+    {% if store.p_sold_out == True %}
+    <p>품절됨</p>
+    {% else %}
+    <p>재고 있음</p>
+    {% endif %}
+    
+    <p>상품 상세정보: {{store.p_info}}</p>
+    <a href="#">장바구니에 담기</a>
+</div>

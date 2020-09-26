@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('select/', views.select, name="select"),
-    path('detail/<int:store_id>', views.detail, name="detail"),
+    path('detail_product/<int:product_id>', views.detail_product, name="detail_product"),
+    path('detail_store/<str:storeName>', views.storeFilter, name="storeFilter"),
 ]
