@@ -3,14 +3,30 @@
 {%block contents%}
 
 <h1>드라이브 스루 신청결과<h1>
-    <div>
-        {% for post in posts %}
+        <div>
+            {% for post in posts %}
             <div style="border: 1px solid black;">
                 <p>{{post.shop}}</p>
                 <p>{{post.items}}</p>
                 <p>{{post.pick_date}}</p>
                 <p>{{post.pub_date}}</p>
             </div>
-        {% endfor %}
-    </div>
-{%endblock%}
+            {% endfor %}
+        </div>
+
+        <!--페이지네이션-->
+        <div class="pagination">
+            {%if posts.has_previous%}
+            <a class="btn-1" href="?page=1">First</a> &nbsp;
+            <a class="btn-1" href="?page={{posts.previous_page_number}}">Previous</a> &nbsp;
+            {%endif%}
+            <span>{{posts.number}}</span>
+            <span>of</span>
+            <span>{{posts.paginator.num_pages}}</span> &nbsp;
+
+            {%if posts.has_next%}
+            <a class="btn-1" href="?page={{posts.next_page_number}}">Next</a>&nbsp;
+            <a class="btn-1" href="?page={{posts.paginator.num_pages}}">Last</a>
+            {%endif%}
+        </div>
+        {%endblock%}
