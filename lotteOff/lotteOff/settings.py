@@ -56,7 +56,7 @@ ROOT_URLCONF = 'lotteOff.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['lotteOff/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
