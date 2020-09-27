@@ -1,7 +1,14 @@
 from django.db import models
 
-class Products(models.Model):
+class Region(models.Model):
+    region = models.CharField(max_length=20)
     storeName = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.storeName
+
+class Product(models.Model):
+    storeName = models.ForeignKey(Region, on_delete=models.CASCADE)
     p_name = models.CharField(max_length=20)
     p_image = models.ImageField(upload_to='images/')
     p_price = models.IntegerField(default=0)
@@ -9,4 +16,5 @@ class Products(models.Model):
     p_info = models.TextField()
 
     def __str__(self):
-        return self.storeName
+        return self.p_name
+
