@@ -13,3 +13,10 @@ class NewProduct(models.Model):
 
     def __str__(self):
         return self.title
+
+class Apply(models.Model):
+    content = models.CharField(max_length=200)
+    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    store_name = models.CharField(max_length=50, null=True)
+    date_time = models.DateTimeField(null=True)
+    newProduct = models.ForeignKey(NewProduct, on_delete = models.CASCADE)
