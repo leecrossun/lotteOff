@@ -6,3 +6,6 @@ def home(request):
 
 def driveThru(request):
     return render(request, 'driveThru.html')
+
+def new(request):
+    return render(request, 'new.html')
