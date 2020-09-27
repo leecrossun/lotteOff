@@ -1,7 +1,108 @@
 {%extends 'tem.html'%}
 
 {%block contents%}
-<h1>select page</h1>
-<a href="{% url 'storeFilter' '롯데마트 창원중앙점' %}">롯데마트 창원중앙점</a>
-<a href="{% url 'storeFilter' '롯데마트 중계점' %}">롯데마트 중계점</a>
+
+<script>
+    function f1() {
+        var province = ["서울특별시", "경기도", "경상남도", "경상북도"];
+        var c1 = ["노원구", "강북구"];
+        var c2 = ["하남시", "남양주시"];
+        var c3 = ["창원시 의창구", "창원시 성산구"];
+        var c4 = ["포항시", "경주시"];
+        
+        var selected = document.getElementById("s1");
+        var option = selected.options[selected.selectedIndex].text;
+        var city = document.getElementById("s2");
+        city.options.length = 0;
+
+        var r1;
+
+        var addOption = document.createElement("option");
+        addOption.text = "시/구 선택";
+        city.add(addOption);
+
+        if (option == "서울특별시") {
+            r1 = "서울특별시";
+
+            for (var i = 0; i < c1.length; i++) {
+                var addOption = document.createElement("option");
+                addOption.text = c1[i];
+                addOption.value = i + 1;
+                city.add(addOption);
+            }
+        } else if (option == "경기도") {
+            r1 = "경기도";
+
+            for (var i = 0; i < c2.length; i++) {
+                var addOption = document.createElement("option");
+                addOption.text = c2[i];
+                addOption.value = i + 1;
+                city.add(addOption);
+            }
+        } else if (option == "경상남도") {
+            r1 = "경상남도";
+
+            for (var i = 0; i < c3.length; i++) {
+                var addOption = document.createElement("option");
+                addOption.text = c3[i];
+                addOption.value = i + 1;
+                city.add(addOption);
+            }
+        } else if (option == "경상북도") {
+            r1 = "경상북도";
+
+            for (var i = 0; i < c4.length; i++) {
+                var addOption = document.createElement("option");
+                addOption.text = c4[i];
+                addOption.value = i + 1;
+                city.add(addOption);
+            }
+        }
+    }
+
+    function f2() {
+        var city = document.getElementById("s2");
+        var r2 = city.options[city.selectedIndex].text;
+
+        var a1 = document.getElementById("region");
+
+    }
+</script>
+
+<div align="center">
+    <h1>지점 고르기</h1>
+
+    <select name="s1" id="s1" onchange="f1()">
+        <option value="">시/도 선택</option>
+        <option value="1">서울특별시</option>
+        <option value="2">경기도</option>
+        <option value="3">경상남도</option>
+        <option value="4">경상북도</option>
+    </select>
+    
+    <select name="s2" id="s2" onchange="f2()">
+        <option value="">시/구 선택</option>
+    </select>
+    
+    <a id="region">
+        <button>확인</button>
+    </a>
+
+    <br>
+<!-- 
+    {% for r in regionPost %}
+
+    {{r.storeName}} -->
+
+    {% endfor %}
+    <!-- <a>
+        {{store.storeName}}
+    </a> -->
+    
+    
+    <br><br>
+    <a href="{% url 'storeFilter' '롯데마트 창원중앙점' %}">롯데마트 창원중앙점</a>
+    <a href="{% url 'storeFilter' '롯데마트 중계점' %}">롯데마트 중계점</a>
+</div>
+
 {%endblock%}
