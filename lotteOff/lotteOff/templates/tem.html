@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        .nav {
+            width: 30000px;
+            height: 80px;
+            display: table-cell;
+            vertical-align: middle;
+            background-color: #ED0000;
+        }
+
+        .navBtn-s, .navBtn-l {
+            display: inline;
+            margin-right: 20px;
+            color: white;
+        }
+
+        .navBtn-s:hover, .navBtn-r:hover {
+            color: black;
+            cursor: pointer;
+        }
+
+        .navBtn-r {
+            float: right;
+            display: inline;
+            color:white;
+            margin-right: 20px;
+        }
+
+        .logo {
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <span class="logo">LOTTE OFF</span>
+        <ul class="navBtn-l">
+            <li class="navBtn-s">HOME</li>
+            <li class="navBtn-s">신제품</li>
+            <li class="navBtn-s">상품 담기</li>
+            <li class="navBtn-s">드라이브 스루</li>
+            <li class="navBtn-r">Login</li>
+            <li class="navBtn-r">고객센터</li>
+        </ul>
+            
+    </div>
+    {%block contents%}
+    {%endblock%}
+</body>
+</html>
