@@ -58,7 +58,9 @@ ROOT_URLCONF = 'lotteOff.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['lotteOff/templates'],
+        'DIRS': ['lotteOff/templates',
+            os.path.join(BASE_DIR, 'cart', 'templates/')
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
