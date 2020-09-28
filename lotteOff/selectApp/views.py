@@ -12,9 +12,9 @@ def select(request):
 #     return render(request, 'select.html', {"regionPost":regionPost, "store":store})
 
 def storeFilter(request, storeName):
-    storePost = Products.objects.filter(storeName=storeName)
+    storePost = Product.objects.filter(storeName=storeName)
     return render(request, 'detail_store.html', {"storePost":storePost, "storeName": storeName})
 
 def detail_product(request, product_id):
-    store = get_object_or_404(Products, pk=product_id)
+    store = get_object_or_404(Product, pk=product_id)
     return render(request, 'detail_product.html', {'store':store})
