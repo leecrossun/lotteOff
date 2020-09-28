@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'driveApp',
     'selectApp',
     'newProduct',
-    'basketApp',
+    'cartApp',
 ]
 
 MIDDLEWARE = [
