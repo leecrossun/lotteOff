@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('driveApp.urls')),
     path('', include('selectApp.urls')),
     path('', include('newProduct.urls')),
-    path('', include('basketApp.urls')),
+    path('', include('cartApp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
