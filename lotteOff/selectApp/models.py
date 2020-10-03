@@ -8,7 +8,7 @@ class Region(models.Model):
         return self.storeName
 
 class Product(models.Model):
-    storeName = models.ForeignKey(Region, on_delete=models.CASCADE)
+    storeName = models.CharField(max_length=20)
     p_name = models.CharField(max_length=20)
     p_image = models.ImageField(upload_to='images/')
     p_price = models.IntegerField(default=0)
