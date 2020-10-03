@@ -66,13 +66,11 @@
         r2 = city.options[city.selectedIndex].text;
 
         var a1 = document.getElementById("region");
-        var a2 = document.getElementById("city");
 
         switch (r1) {
             case "서울특별시":
             if (r2 == "노원구") {
                 a1.href = "{% url 'regionFilter' '서울특별시 노원구' %}";
-                //a2.href = "{% url 'storeFilter' '롯데마트 중계점' %}";
             } else if (r2 == "강북구") {
                 a1.href = "{% url 'regionFilter' '서울특별시 강북구' %}";
             }
