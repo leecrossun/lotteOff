@@ -72,6 +72,7 @@
             case "서울특별시":
             if (r2 == "노원구") {
                 a1.href = "{% url 'regionFilter' '서울특별시 노원구' %}";
+                //a2.href = "{% url 'storeFilter' '롯데마트 중계점' %}";
             } else if (r2 == "강북구") {
                 a1.href = "{% url 'regionFilter' '서울특별시 강북구' %}";
             }
@@ -126,15 +127,11 @@
         <button>확인</button>
     </a>
 
-    <br>
+    <br><br>
     
     {% for r in regionPost %}
-    <a id="city" href="{% url 'storeFilter' '롯데마트 창원중앙점' %}">{{r.storeName}}</a>
+    <a id="city" href="{% url 'storeFilter' r.storeName %}">{{r.storeName}}</a>
     {% endfor %}
-
-    <br><br>
-    <a href="{% url 'storeFilter' '롯데마트 창원중앙점' %}">롯데마트 창원중앙점</a>
-    <a href="{% url 'storeFilter' '롯데마트 중계점' %}">롯데마트 중계점</a>
 </div>
 
 {%endblock%}
