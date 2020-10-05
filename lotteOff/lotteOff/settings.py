@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'selectApp',
     'newProduct',
     'cartApp',
+    'chatApp',
 
     # allauth 관련 설정
     'allauth',
