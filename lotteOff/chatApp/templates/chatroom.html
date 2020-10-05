@@ -15,19 +15,9 @@
 
 <p id="refresh">새로고침</p>
 <div id="here">여기<br></div>
-<!-- {{ result | json_script:'jsonData'}}
-        <script type = "text/javascript"> 
-            var placeData = JSON.parse(document.getElementById('jsonData').textContent);
-            for( var key1 in placeData){
-                var jsonData = JSON.parse(placeData[key1])
-                    for (var key2 in jsonData)
-                    {
-                        (key2+" : " +jsonData[key2]+"<br>")            
-                    }
-            }
-        </script> -->
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $("#refresh").click(function(){
     var pk = $(this).attr('name')
     $.ajax({ 
@@ -55,7 +45,37 @@
       },
     });
   })
+</script> -->
+
+<script>
+  setInterval("refresh()", 1000);
+
+  function refresh() {
+      $.ajax({ 
+        type: "POST", 
+        url: "{% url 'chat_refresh' my_room.id %}", 
+        data: {'pk': $(this).attr('name'), 'csrfmiddlewaretoken': '{{ csrf_token }}'}, 
+        dataType: "json", 
+        success: function(response){ 
+          document.getElementById('here').innerHTML = "성공<br>";
+          for (i in response) {
+              //지금은 계속 +=로 추가하는데 나중에는 한 문자열에 넣고 한 번에 
+              var message = JSON.parse(response[i])
+              for (var key in message) {
+                  document.getElementById('here').innerHTML += message[key];
+                  if (key == "sender") {
+                    document.getElementById('here').innerHTML += ": ";
+                  } else {
+                    document.getElementById('here').innerHTML += "<br>";
+                  }
+              }
+          }
+        }
+      });
+  }
+
 </script>
+
 
 {% if user.is_authenticated or user.username == "admin" %}
     <a href="{% url 'delete_room' my_room.id %}">채팅방 삭제</a>
