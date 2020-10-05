@@ -1,11 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import DriveThru
-# Create your views here.
+from django.http import Http404, HttpResponseRedirect
+from django.core.exceptions import PermissionDenied
+
+
 def home(request):
     return render(request, 'home.html')
 
+def loginWarning(request):
+    return render(request, 'loginWarning.html')
+
 def driveThru(request):
+    if not request.user.is_authenticated:
+        return redirect('loginWarning')
+
     form = DriveThru.objects
     forms = DriveThru.objects.filter(author=request.user)
     paginator = Paginator(forms,3)
