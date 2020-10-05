@@ -17,7 +17,7 @@
     {% endif %}
 
     <p>상품 상세정보: {{store.p_info}}</p>
-    <a href="#">
+    <a href="{%url 'cart:add_cart' store.id%}">
         <button>장바구니 담기</button>
     </a>
 </div>
