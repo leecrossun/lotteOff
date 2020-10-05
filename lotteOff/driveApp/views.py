@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .models import DriveThru
 from django.http import Http404, HttpResponseRedirect
@@ -24,3 +24,8 @@ def driveThru(request):
 
 def new(request):
     return render(request, 'new.html')
+
+def delete (request, pk):
+    blog = get_object_or_404(DriveThru, pk = pk)
+    blog.delete()
+    return redirect('driveThru')
