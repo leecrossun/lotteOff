@@ -41,23 +41,23 @@
                         {%for cart_item in cart_items%}
                             <tr>
                                 <td>
-                                    <a href="{{Cart_item.product.get_absolute_url}}"><img src="{{cart_item.product.image.url}}"
-                                    alt="" class="float-lef rounded custom_image"></a>
+                                    <a href="{{cart_item.product.get_absolute_url}}"><img src="{{cart_item.product.image.url}}"
+                                    alt="" class="float-left rounded custom_image"></a>
                                 </td>
                                 <td class="text-left">
-                                    {{cart_item.product.name}}
+                                    {{cart_item.product.p_name}}
                                     <br>
                                     SKU: {{cart_item.product.id}}
                                     <br>
-                                    개당 가격 : A${{cart.item.product.price}}
+                                    개당 가격 : A${{cart.item.product.p_price}}
                                     <br>
-                                    Qty : {{cart_item.quantity}} x A${{cart_item.product.price}}
+                                    Qty : {{cart_item.quantity}} x A${{cart_item.product.p_price}}
                                 </td>
                                 <td>
                                     A${{cart_item.sub_total}}
                                 </td>
-                                {%if cart_item.quantity < cart_item.product.stock%}
-                                <!-- 이상 있으면 위에 코드 <에서 <=로 변경 -->
+                                {%if cart_item.quantity < 0%}
+                                <!-- 0이 원래는 cart_item.product.stock인데 selectApp.models.Product에 stock이 없음 -->
                                     <td>
                                         <a href="{%url 'cart:add_cart' cart_item.product.id%}" class="custom_a">
                                             <i class="fas fa-plus-circle custom_icon"></i></a>&nbsp;
@@ -99,7 +99,7 @@
                     </tbody>
                 </table>
                 <div class="mx-auto">
-                    <a href=# class="btn btn-secondary btn-block my_custom_button">쇼핑 계속하기</a>
+                    <a href="#" class="btn btn-secondary btn-block my_custom_button">쇼핑 계속하기</a>
                     <!-- 쇼핑페이지로 연결. 맨 위와 같은 링크 -->
                 </div>
             </div>
