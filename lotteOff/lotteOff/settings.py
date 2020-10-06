@@ -69,7 +69,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['lotteOff/templates',
-            os.path.join(BASE_DIR, 'cart', 'templates/')
+            'cartApp/templates',
+            #os.path.join(BASE_DIR, 'cartApp', 'templates/')
             ],
         'APP_DIRS': True,
         'OPTIONS': {

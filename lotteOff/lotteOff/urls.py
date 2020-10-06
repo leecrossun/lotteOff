@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('selectApp.urls')),
     path('', include('newProduct.urls')),
     path('', include('chatApp.urls')),
-    path('', include('cartApp.urls', namespace="cart")),
+    path('', include('cartApp.urls')),
     path('accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
